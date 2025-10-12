@@ -14,10 +14,14 @@ Welcome to my **Personal Portfolio Website**! 🚀 This website showcases my ski
 ✅ **Projects Section** – Featured projects I have built.  
 ✅ **Contact Section** – Provides a mailto link for direct emails.  
 
+
 ---
 
 
 ## 📸 Screenshots
+
+<img width="2534" height="1292" alt="Screenshot 2025-10-12 095255" src="https://github.com/user-attachments/assets/853d575e-f76e-49b7-8f2d-99c1f350a4f6" />
+<img width="2535" height="1291" alt="Screenshot 2025-10-12 095310" src="https://github.com/user-attachments/assets/8d95170e-11a1-4b4b-b1cb-4c76ac38ad6e" />
 
 ### 🏡 Home Page
 ![Home Section](./images/home-page-ss.png)

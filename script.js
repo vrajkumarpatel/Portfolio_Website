@@ -71,35 +71,6 @@ const menu = document.getElementById("menu");
 menuToggle.addEventListener("click", () => menu.classList.toggle("open"));
 menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => menu.classList.remove("open")));
 
-// Enhanced navbar scroll effect
-const navbar = document.querySelector('.navbar');
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 100) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-});
-
-// Scroll-to-top button with enhanced animation
-const scrollTopBtn = document.getElementById("scroll-top");
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 400) {
-    scrollTopBtn.style.display = "flex";
-    scrollTopBtn.style.opacity = "1";
-    scrollTopBtn.style.transform = "translateY(0)";
-  } else {
-    scrollTopBtn.style.opacity = "0";
-    scrollTopBtn.style.transform = "translateY(20px)";
-    setTimeout(() => {
-      if (window.scrollY <= 400) {
-        scrollTopBtn.style.display = "none";
-      }
-    }, 300);
-  }
-});
-scrollTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-
 // Typed text
 var typed = new Typed(".typing", {
     strings: ["AI Research Student", "Machine Learning Engineer", "Intelligent Systems Developer", "Data Science Enthusiast"],
@@ -116,24 +87,6 @@ particlesJS.load("particles-js", "particles.json", function() {
   // Initialize particles with current theme
   const isLightMode = body.classList.contains("light-mode");
   setTimeout(() => updateParticles(isLightMode ? "light" : "dark"), 100);
-});
-
-// Loading Screen
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.querySelector('.loading-screen').classList.add('hidden');
-    setTimeout(() => {
-      document.querySelector('.loading-screen').style.display = 'none';
-    }, 500);
-  }, 2000);
-});
-
-// Scroll Progress
-window.addEventListener('scroll', () => {
-  const scrollTop = window.pageYOffset;
-  const docHeight = document.body.offsetHeight - window.innerHeight;
-  const scrollPercent = (scrollTop / docHeight) * 100;
-  document.querySelector('.scroll-progress').style.width = scrollPercent + '%';
 });
 
 
@@ -159,6 +112,12 @@ const observer = new IntersectionObserver((entries) => {
 const skillsSection = document.querySelector('#skills');
 if (skillsSection) {
   observer.observe(skillsSection);
+}
+
+// Observe learning section
+const learningSection = document.querySelector('#learning');
+if (learningSection) {
+  observer.observe(learningSection);
 }
 
 // Enhanced typing animation with more effects
@@ -219,18 +178,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       });
     }
   });
-});
-
-// Enhanced loading screen with better animations
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const loadingScreen = document.querySelector('.loading-screen');
-    loadingScreen.style.opacity = '0';
-    loadingScreen.style.transform = 'scale(1.1)';
-    setTimeout(() => {
-      loadingScreen.style.display = 'none';
-    }, 500);
-  }, 1500);
 });
 
 // Animated statistics counter
@@ -302,4 +249,62 @@ if (profileImage) {
       profileImage.style.animation = 'elegant-float 8s ease-in-out infinite, gentle-glow 4s ease-in-out infinite alternate';
     }, 100);
   });
+
 }
+
+// --- Consolidated Event Listeners ---
+
+// Consolidated Scroll Listener
+const navbar = document.querySelector('.navbar');
+const scrollTopBtn = document.getElementById("scroll-top");
+
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+
+  // Navbar scroll effect
+  if (scrollY > 100) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+
+  // Scroll-to-top button
+  if (scrollY > 400) {
+    scrollTopBtn.style.display = "flex";
+    scrollTopBtn.style.opacity = "1";
+    scrollTopBtn.style.transform = "translateY(0)";
+  } else {
+    scrollTopBtn.style.opacity = "0";
+    scrollTopBtn.style.transform = "translateY(20px)";
+    setTimeout(() => {
+      if (window.scrollY <= 400) {
+        scrollTopBtn.style.display = "none";
+      }
+    }, 300);
+  }
+
+  // Scroll Progress
+  const docHeight = document.body.offsetHeight - window.innerHeight;
+  const scrollPercent = (scrollY / docHeight) * 100;
+  document.querySelector('.scroll-progress').style.width = scrollPercent + '%';
+});
+
+scrollTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+
+// Consolidated Load Listener
+window.addEventListener('load', () => {
+  // Loading Screen
+  const loadingScreen = document.querySelector('.loading-screen');
+  setTimeout(() => {
+    loadingScreen.style.opacity = '0';
+    loadingScreen.style.transform = 'scale(1.1)';
+    setTimeout(() => {
+      loadingScreen.style.display = 'none';
+    }, 500);
+  }, 1500);
+
+  // You can add other 'load' event logic here if needed.
+  // The original loading screen logic was duplicated, I've kept the more enhanced one.
+});
+

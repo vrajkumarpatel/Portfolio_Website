@@ -93,8 +93,6 @@ body.light-mode {
   width: 100%;
   height: var(--nav-height);
   background: rgba(15, 23, 42, 0.15);
-  backdrop-filter: blur(60px) saturate(180%);
-  -webkit-backdrop-filter: blur(60px) saturate(180%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
@@ -107,23 +105,17 @@ body.light-mode {
 
 .light-mode .navbar {
   background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(60px) saturate(180%);
-  -webkit-backdrop-filter: blur(60px) saturate(180%);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .navbar.scrolled {
   background: rgba(15, 23, 42, 0.25);
-  backdrop-filter: blur(80px) saturate(200%);
-  -webkit-backdrop-filter: blur(80px) saturate(200%);
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 .light-mode .navbar.scrolled {
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(80px) saturate(200%);
-  -webkit-backdrop-filter: blur(80px) saturate(200%);
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
@@ -243,6 +235,12 @@ body.light-mode {
 /* Mobile Menu */
 #menu-toggle {
   display: none;
+}
+
+@media (max-width: 992px) {
+  .menu {
+    gap: 1.2rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -944,9 +942,14 @@ h2::after {
   line-height: 1.4;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .professional-content {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .professional-content {
     gap: 2rem;
   }
   
@@ -1516,7 +1519,7 @@ h2::after {
   border-radius: 28px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   position: relative;
-  overflow: hidden;
+  z-index: 1;
 }
 
 .contact-form::before {
@@ -1561,6 +1564,8 @@ h2::after {
   font-size: 1rem;
   margin-bottom: 1rem;
   transition: var(--transition);
+  position: relative;
+  z-index: 2;
 }
 
 .light-mode .contact-form input,
@@ -1586,6 +1591,8 @@ h2::after {
   cursor: pointer;
   transition: var(--transition);
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .contact-form button:hover {
@@ -1692,7 +1699,9 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--dark-bg);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2289,22 +2298,53 @@ footer {
 /* ---------------------------
    RESPONSIVE DESIGN
 ---------------------------- */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .home-section {
     flex-direction: column-reverse;
     text-align: center;
   }
 
   .home-section .image img {
-    width: 70%;
+    width: 60%;
+    max-width: 300px;
   }
 
   .about-highlights {
     grid-template-columns: 1fr;
   }
 
+  .professional-details {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .testimonials-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-section {
+    padding-top: calc(var(--nav-height) + 1rem);
+  }
+
+  .home-section .text h1 {
+    font-size: 2.2rem;
+  }
+
+  .home-section .text h3 {
+    font-size: 1.2rem;
+  }
+
   .achievements-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .timeline::before {
@@ -2329,7 +2369,7 @@ footer {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   .section {
     padding: 4rem 1rem;
   }
@@ -2343,15 +2383,37 @@ footer {
   }
 
   .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1.5rem;
   }
 
   .projects-grid {
     grid-template-columns: 1fr;
   }
 
-  .achievements-grid {
-    grid-template-columns: 1fr;
+  .stat-item {
+    padding: 1.5rem 1rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-section .image img {
+    width: 80%;
+  }
+
+  .skills-grid {
+    gap: 1rem;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
   }
 }

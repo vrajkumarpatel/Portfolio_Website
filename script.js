@@ -304,7 +304,6 @@ window.addEventListener('load', () => {
     }, 500);
   }, 1500);
 
-  // You can add other 'load' event logic here if needed.
-  // The original loading screen logic was duplicated, I've kept the more enhanced one.
-});
 
+});
+ 

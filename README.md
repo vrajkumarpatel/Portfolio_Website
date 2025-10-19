@@ -1,6 +1,6 @@
 # 📌 Personal Portfolio Website
 
-Welcome to my **Personal Portfolio Website**! 🚀 This website showcases my skills, experience, and projects as a Computer Science student. It is designed to be fully responsive, interactive, and visually appealing using **HTML, CSS, JavaScript**, and **Font Awesome** icons. Here is a link to the hosted website, check it out ~ [Portfolio Website](vrajpatel.info)
+Welcome to my **Personal Portfolio Website**! 🚀 This website showcases my skills, experience, and projects as a Computer Science student. It is designed to be fully responsive, interactive, and visually appealing using **HTML, CSS, JavaScript**, and **Font Awesome** icons. Here is a link to the hosted website, 👉 [Visit my website](https://vrajpatel.info)
 
 ---
 

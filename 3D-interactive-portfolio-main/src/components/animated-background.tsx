@@ -364,9 +364,9 @@ const AnimatedBackground = () => {
         splineApp.setVariable("desc", DEFAULT_DESC);
       }
     });
-    splineApp.addEventListener("mouseDown", (e) => {
+      splineApp.addEventListener("mouseDown", (e) => {
       if (!splineApp) return;
-      const target = e.target as SPEObject;
+      const target = e.target as any;
       const skill = SKILLS[e.target.name as SkillNames];
       if (skill) {
         setSelectedSkill(skill);

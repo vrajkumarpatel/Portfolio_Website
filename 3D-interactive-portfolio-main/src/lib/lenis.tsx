@@ -24,7 +24,7 @@ export function ReactLenis({ children, options }: ReactLenisProps) {
     const instance = new Lenis({
       duration: 1.2,
       smoothWheel: true,
-      smoothTouch: false,
+      // smoothTouch: false,
       ...options,
     });
     lenisRef.current = instance;

@@ -16,7 +16,7 @@ function MainPage() {
         <main className={cn("relative z-10 bg-slate-100 dark:bg-transparent pointer-events-none")}>
           <div
             className="top-0 fixed w-full"
-            style={{ height: "100dvh", zIndex: "var(--bg-z)", pointerEvents: "var(--bg-pointer)" }}
+            style={{ height: "100dvh", zIndex: "var(--bg-z)", pointerEvents: "var(--bg-pointer)" as any }}
           >
             <AnimatedBackground />
           </div>

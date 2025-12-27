@@ -1,10 +1,10 @@
-![Portfolio Preview](public/assets/seo/og-image.png)
+![Portfolio Preview]()
 
 # 🚀 My Portfolio Website
 
 Welcome to the repository for my personal portfolio website! 🎉 This project is a culmination of creativity, technology, and my dedication to showcasing my skills, projects, and personality in a visually stunning and interactive manner.
 
-### Live preview: [Coming Soon]
+### Live preview: [https://vrajpatel.info/]
 
 ## 🔥 Features
 
@@ -79,9 +79,6 @@ The portfolio website is built using the following tools and technologies:
 
 This project is deployed using **Netlify** for its blazing-fast performance and ease of use.
 
-## 💖 Acknowledgments
-
-A huge shoutout to [Naresh Khatri](https://github.com/Naresh-Khatri/Portfolio) for the inspiration and ideas that sparked this journey! 💡
 
 ## 📬 Contact
 

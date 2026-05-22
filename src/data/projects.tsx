@@ -347,6 +347,36 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <Image src="/assets/icons/sqlalchemy-icon.svg" alt="SQLAlchemy" width={20} height={20} />,
   },
+  csharp: {
+    title: "C# .NET 9",
+    bg: "black",
+    fg: "white",
+    icon: <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" width={20} height={20} />,
+  },
+  groq: {
+    title: "Groq LLM",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-[10px] font-bold leading-none">GROQ</span>,
+  },
+  elevenlabs: {
+    title: "ElevenLabs TTS",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-[10px] font-bold leading-none">11Labs</span>,
+  },
+  live2d: {
+    title: "Live2D Avatar",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-[10px] font-bold leading-none">L2D</span>,
+  },
+  cuda: {
+    title: "CUDA 12.8",
+    bg: "black",
+    fg: "white",
+    icon: <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nvidia/nvidia-original.svg" alt="CUDA" width={20} height={20} />,
+  },
 };
 export type Project = {
   id: string;
@@ -362,6 +392,66 @@ export type Project = {
   demo?: string;
 };
 const projects: Project[] = [
+  {
+    id: "aria",
+    category: "AI Capstone",
+    title: "ARIA – Adaptive Responsive Intelligent Agent",
+    src: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?q=80&w=2070&auto=format&fit=crop",
+    description:
+      "Real-time AI study companion with speech recognition, LLM inference, emotionally expressive Live2D avatar, persistent memory via Obsidian vault, and <5s end-to-end latency. NLU AI Senior Capstone, showcased May 8, 2026.",
+    screenshots: [],
+    live: "#",
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.csharp,
+        PROJECT_SKILLS.live2d,
+      ],
+      backend: [
+        PROJECT_SKILLS.python,
+        PROJECT_SKILLS.fastapi,
+        PROJECT_SKILLS.groq,
+        PROJECT_SKILLS.elevenlabs,
+        PROJECT_SKILLS.cuda,
+      ],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono">
+            ARIA (Adaptive Responsive Intelligent Agent) is a real-time AI study companion delivered as a Live2D animated character. She listens via microphone, generates a pedagogically intentional LLM response with long-term memory, and speaks back with a synthesized voice while her avatar displays synchronized lip movement and 17 emotional expressions. Built as the NLU AI Senior Capstone, showcased May 8, 2026.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+
+          <TypographyH3 className="my-4 mt-8">Core Features</TypographyH3>
+          <ul className="list-disc ml-6 space-y-2">
+            <li className="font-mono"><strong>Real-Time Pipeline:</strong> Speech → Whisper ASR (~370ms) → Groq LLM (~3s) → ElevenLabs/Qwen3 TTS → Audio2Face lip-sync → Live2D render at 60fps, all under 5 seconds end-to-end.</li>
+            <li className="font-mono"><strong>Persistent Memory:</strong> Every conversation is stored as markdown in an Obsidian vault. BM25 search retrieves relevant past sessions and injects them into every LLM prompt — ARIA remembers your projects and learning history.</li>
+            <li className="font-mono"><strong>Cross-Platform Memory Import:</strong> Exports from Claude, ChatGPT, and Gemini can be imported into the memory vault, giving ARIA knowledge of a student&apos;s full AI-assisted academic history.</li>
+            <li className="font-mono"><strong>17 Emotional Expressions:</strong> LLM embeds inline emotion tags; EmotionProcessor strips them before TTS and fires Live2D expressions synchronized to audio playback.</li>
+            <li className="font-mono"><strong>Dual TTS Engines:</strong> ElevenLabs (cloud, reliable) and Qwen3-TTS running locally on GPU with real emotional prosody, sighs, and natural vocalizations.</li>
+            <li className="font-mono"><strong>Educational Philosophy:</strong> ARIA guides students toward their own answers rather than completing work for them — structured to make AI-assisted learning meaningful, not a shortcut.</li>
+          </ul>
+
+          <TypographyH3 className="my-4 mt-8">System Architecture</TypographyH3>
+          <ul className="list-disc ml-6 space-y-2">
+            <li className="font-mono"><strong>Engine:</strong> PersonaEngine 3.0.2 (C# / .NET 9) — custom-built on an open-source Live2D + TTS framework.</li>
+            <li className="font-mono"><strong>LLM Proxy:</strong> Python / FastAPI on localhost:7777 — handles memory injection, date awareness, Groq rate-limiting (2.1s gap), and Obsidian vault writes.</li>
+            <li className="font-mono"><strong>LLM:</strong> Groq API (llama-3.1-8b-instant) — 500K tokens/day free tier, OpenAI-compatible.</li>
+            <li className="font-mono"><strong>Lip Sync:</strong> NVIDIA Audio2Face ONNX (GPU) → ARKit blendshapes → BVLS solver → Live2D mouth parameters.</li>
+            <li className="font-mono"><strong>GPU:</strong> RTX 5000-series (Blackwell SM_120a), CUDA 12.8, cuDNN 9.1.1.</li>
+          </ul>
+
+          <TypographyH3 className="my-4 mt-8">Performance</TypographyH3>
+          <ul className="list-disc ml-6 space-y-2">
+            <li className="font-mono">STT latency: 315–468ms</li>
+            <li className="font-mono">LLM latency: 2,645–4,251ms</li>
+            <li className="font-mono">TTS first chunk: 1,031–1,767ms (typical)</li>
+            <li className="font-mono">End-to-end total: ~4.2–5.3s typical, &lt;5s target achieved</li>
+          </ul>
+        </div>
+      );
+    },
+  },
   {
     id: "idscnr",
     category: "Windows Automation",

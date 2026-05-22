@@ -15,10 +15,10 @@ import { SiGithub, SiLinkedin } from "react-icons/si";
 import { config } from "@/data/config";
 
 const TYPED_STRINGS = [
-  "AI Research Student",
-  "Machine Learning Engineer",
-  "Intelligent Systems Developer",
+  "Full Stack Developer",
+  "AI & ML Engineer",
   "Data Science Enthusiast",
+  "CS Student @ NLU",
 ];
 
 const HeroSection = () => {

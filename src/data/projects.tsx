@@ -401,6 +401,7 @@ const projects: Project[] = [
       "Real-time AI study companion with speech recognition, LLM inference, emotionally expressive Live2D avatar, persistent memory via Obsidian vault, and <5s end-to-end latency. NLU AI Senior Capstone, showcased May 8, 2026.",
     screenshots: [],
     live: "#",
+    github: "https://github.com/vrajkumarpatel/ARIA",
     skills: {
       frontend: [
         PROJECT_SKILLS.csharp,

@@ -88,16 +88,16 @@ const ExperienceSection = () => {
                         job.company
                       )}
                     </h3>
-                    <p className="text-white/90 font-medium">{job.role}</p>
+                    <p className="text-black/80 dark:text-white/90 font-medium">{job.role}</p>
                   </div>
-                  <div className="text-sm text-zinc-400 md:text-right shrink-0">
+                  <div className="text-sm text-zinc-600 dark:text-zinc-400 md:text-right shrink-0">
                     <p>{job.period}</p>
                     <p>{job.location}</p>
                   </div>
                 </div>
                 <ul className="list-disc ml-5 space-y-2 mb-4">
                   {job.bullets.map((b, j) => (
-                    <li key={j} className="text-sm font-mono text-zinc-300">{b}</li>
+                    <li key={j} className="text-sm font-mono text-zinc-700 dark:text-zinc-300">{b}</li>
                   ))}
                 </ul>
                 <div className="flex flex-wrap gap-2 mt-2">

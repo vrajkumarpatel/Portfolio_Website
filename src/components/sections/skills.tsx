@@ -45,7 +45,7 @@ const SkillTile = ({ item }: { item: SkillItem }) => {
           <item.Icon className="w-9 h-9 text-sky-400" />
         </div>
       ) : null}
-      <p className="text-sm text-zinc-300">{item.label}</p>
+      <p className="text-sm text-zinc-600 dark:text-zinc-300">{item.label}</p>
     </div>
   );
 };

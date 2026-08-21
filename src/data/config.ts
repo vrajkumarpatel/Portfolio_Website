@@ -1,9 +1,9 @@
 const config = {
   title: "Vrajkumar Patel | Computer Science Student & Full-Stack Developer",
   description: {
-    long: "Computer Science graduate (AI concentration, GPA 3.68) from National Louis University, with production experience building full-stack and AI systems. Founder of Stayvoo, a hotel booking platform for extended-stay and group reservations. Built ARIA, an AI agent combining LLM inference and Retrieval-Augmented Generation, earning 2nd place at the NLU CSIS Tech Summit. Previously led a 4-person engineering team at Squareone, delivering full-stack features on AWS.",
+    long: "Full-stack developer and founder of Stayvoo, a hotel booking platform. Built ARIA, an AI agent using LLM inference and RAG — 2nd place, NLU CSIS Tech Summit. CS graduate (AI concentration) who led a 4-person team at Squareone shipping full-stack features on AWS.",
     short:
-      "Computer Science graduate (AI concentration, GPA 3.68) from National Louis University, with production experience building full-stack and AI systems. Founder of Stayvoo, a hotel booking platform for extended-stay and group reservations. Built ARIA, an AI agent combining LLM inference and Retrieval-Augmented Generation, earning 2nd place at the NLU CSIS Tech Summit. Previously led a 4-person engineering team at Squareone, delivering full-stack features on AWS.",
+      "Full-stack developer and founder of Stayvoo, a hotel booking platform. Built ARIA, an AI agent using LLM inference and RAG — 2nd place, NLU CSIS Tech Summit. CS graduate (AI concentration) who led a 4-person team at Squareone shipping full-stack features on AWS.",
   },
   keywords: [
     "Vrajkumar",

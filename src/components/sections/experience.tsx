@@ -1,10 +1,26 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { BoxReveal } from "../reveal-animations";
 import { cn } from "@/lib/utils";
 
 const EXPERIENCE = [
+  {
+    company: "Stayvoo LLC",
+    link: "https://stayvoo.com",
+    role: "Founder & Full-Stack Developer",
+    period: "Jun 2026 – Present",
+    location: "Remote",
+    bullets: [
+      "Founded and built a hotel booking platform for extended-stay and group reservations, developing the full stack with FastAPI, React, and Supabase, deployed on Railway and Vercel.",
+      "Engineered an 8-phase security overhaul that fixed IDOR and PII enumeration vulnerabilities, added authentication, rate limiting, and audit logging, plus Playwright end-to-end test coverage — resulting in a more secure platform and preventing data-leak incidents.",
+      "Built an admin dashboard with React and Supabase providing global search, inline editing, and a real-time daily operations view, allowing staff to manage reservations faster with fewer manual errors.",
+      "Designed automation architecture using n8n workflows, Twilio SMS, and Stripe payments with a feature-flag kill switch for controlled launch.",
+      "Configured a B2B lead-generation pipeline using Apollo.io targeting construction and staffing companies.",
+    ],
+    tags: ["FastAPI", "React", "Supabase", "Railway", "Vercel", "n8n", "Twilio", "Stripe", "Playwright"],
+  },
   {
     company: "Squareone",
     role: "Full Stack Software Developer Intern",
@@ -57,7 +73,21 @@ const ExperienceSection = () => {
               <div className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-lg shadow-lg p-6 md:p-8 pointer-events-none">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-1 mb-4">
                   <div>
-                    <h3 className="text-xl font-semibold text-sky-400">{job.company}</h3>
+                    <h3 className="text-xl font-semibold text-sky-400">
+                      {job.link ? (
+                        <Link
+                          href={job.link}
+                          target="_blank"
+                          rel="noopener"
+                          className="inline-flex items-center gap-1 pointer-events-auto cursor-can-hover hover:text-sky-300 transition-colors"
+                        >
+                          {job.company}
+                          <ArrowUpRight className="w-4 h-4" />
+                        </Link>
+                      ) : (
+                        job.company
+                      )}
+                    </h3>
                     <p className="text-white/90 font-medium">{job.role}</p>
                   </div>
                   <div className="text-sm text-zinc-400 md:text-right shrink-0">

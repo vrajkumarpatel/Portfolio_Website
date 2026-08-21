@@ -2,7 +2,7 @@ import AceTernityLogo from "@/components/logos/aceternity";
 import SlideShow from "@/components/slide-show";
 import { Button } from "@/components/ui/button";
 import { TypographyH3, TypographyP } from "@/components/ui/typography";
-import { ArrowDownUpIcon, ArrowUpRight, ExternalLink, Link2, MoveUpRight } from "lucide-react";
+import { ArrowDownUpIcon, ArrowUpRight, ExternalLink, Link2, MoveUpRight, Workflow } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
@@ -39,6 +39,11 @@ import {
   SiPandas,
   SiNumpy,
   SiPlotly,
+  SiRailway,
+  SiVercel,
+  SiTwilio,
+  SiStripe,
+  SiPlaywright,
 } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import css from "styled-jsx/css";
@@ -377,6 +382,42 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nvidia/nvidia-original.svg" alt="CUDA" width={20} height={20} />,
   },
+  railway: {
+    title: "Railway",
+    bg: "black",
+    fg: "white",
+    icon: <SiRailway />,
+  },
+  vercel: {
+    title: "Vercel",
+    bg: "black",
+    fg: "white",
+    icon: <SiVercel />,
+  },
+  n8n: {
+    title: "n8n",
+    bg: "black",
+    fg: "white",
+    icon: <Workflow />,
+  },
+  twilio: {
+    title: "Twilio",
+    bg: "black",
+    fg: "white",
+    icon: <SiTwilio />,
+  },
+  stripe: {
+    title: "Stripe",
+    bg: "black",
+    fg: "white",
+    icon: <SiStripe />,
+  },
+  playwright: {
+    title: "Playwright",
+    bg: "black",
+    fg: "white",
+    icon: <SiPlaywright />,
+  },
 };
 export type Project = {
   id: string;
@@ -392,6 +433,50 @@ export type Project = {
   demo?: string;
 };
 const projects: Project[] = [
+  {
+    id: "stayvoo",
+    category: "Hospitality SaaS",
+    title: "Stayvoo – Hotel Booking Platform",
+    src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+    description:
+      "A hotel booking platform for extended-stay and group reservations, built full-stack with FastAPI, React, and Supabase. Includes an 8-phase security overhaul, a real-time admin dashboard, and automated operations via n8n, Twilio, and Stripe.",
+    screenshots: [],
+    live: "https://stayvoo.com",
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.react,
+        PROJECT_SKILLS.vercel,
+        PROJECT_SKILLS.playwright,
+      ],
+      backend: [
+        PROJECT_SKILLS.fastapi,
+        PROJECT_SKILLS.supabase,
+        PROJECT_SKILLS.railway,
+        PROJECT_SKILLS.n8n,
+        PROJECT_SKILLS.twilio,
+        PROJECT_SKILLS.stripe,
+      ],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono">
+            Stayvoo is a hotel booking platform built for extended-stay and group reservations, founded and developed end-to-end &mdash; full stack, security hardening, admin tooling, and go-to-market automation.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+
+          <TypographyH3 className="my-4 mt-8">Core Features</TypographyH3>
+          <ul className="list-disc ml-6 space-y-2">
+            <li className="font-mono"><strong>Full-Stack Platform:</strong> Built with FastAPI, React, and Supabase, deployed on Railway (API) and Vercel (frontend).</li>
+            <li className="font-mono"><strong>8-Phase Security Overhaul:</strong> Fixed IDOR and PII enumeration vulnerabilities, added authentication, rate limiting, and audit logging, plus Playwright end-to-end test coverage &mdash; preventing data-leak incidents.</li>
+            <li className="font-mono"><strong>Admin Dashboard:</strong> Built with React and Supabase, providing global search, inline editing, and a real-time daily operations view so staff can manage reservations faster with fewer manual errors.</li>
+            <li className="font-mono"><strong>Automation Architecture:</strong> n8n workflows, Twilio SMS, and Stripe payments, with a feature-flag kill switch for controlled launch.</li>
+            <li className="font-mono"><strong>B2B Lead Generation:</strong> Apollo.io-powered pipeline targeting construction and staffing companies.</li>
+          </ul>
+        </div>
+      );
+    },
+  },
   {
     id: "aria",
     category: "AI Capstone",

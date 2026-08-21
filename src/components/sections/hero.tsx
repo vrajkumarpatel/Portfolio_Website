@@ -116,14 +116,9 @@ const HeroSection = () => {
                   <p
                     className={cn(
                       "md:self-start md:mt-4 font-thin text-md text-slate-500 dark:text-zinc-400 ml-3",
-                      "cursor-default font-display sm:text-xl md:text-xl bg-clip-text break-words"
+                      "cursor-default font-display text-sm sm:text-base md:text-lg bg-clip-text break-words",
+                      "max-w-md lg:max-w-lg"
                     )}
-                    style={{
-                      display: "-webkit-box",
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
-                    }}
                   >
                     {config.description.short}
                   </p>

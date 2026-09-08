@@ -439,7 +439,7 @@ const projects: Project[] = [
     title: "Stayvoo – Hotel Booking Platform",
     src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
     description:
-      "A hotel booking platform for extended-stay and group reservations, built full-stack with FastAPI, React, and Supabase. Includes an 8-phase security overhaul, a real-time admin dashboard, and automated operations via Twilio and Stripe.",
+      "A hotel booking platform for extended-stay and group reservations, built full-stack with FastAPI, React, and Supabase. Includes an 8-phase security overhaul, a real-time admin dashboard, and a B2B lead-generation pipeline (n8n, Apollo.io, LLM-based lead scoring).",
     screenshots: [],
     live: "https://stayvoo.com",
     skills: {
@@ -452,6 +452,7 @@ const projects: Project[] = [
         PROJECT_SKILLS.fastapi,
         PROJECT_SKILLS.supabase,
         PROJECT_SKILLS.railway,
+        PROJECT_SKILLS.n8n,
         PROJECT_SKILLS.twilio,
         PROJECT_SKILLS.stripe,
       ],
@@ -470,7 +471,7 @@ const projects: Project[] = [
             <li className="font-mono"><strong>8-Phase Security Overhaul:</strong> Fixed IDOR and PII enumeration vulnerabilities, added authentication, rate limiting, and audit logging, plus Playwright end-to-end test coverage &mdash; preventing data-leak incidents.</li>
             <li className="font-mono"><strong>Admin Dashboard:</strong> Built with React and Supabase, providing global search, inline editing, and a real-time daily operations view so staff can manage reservations faster with fewer manual errors.</li>
             <li className="font-mono"><strong>Automation Architecture:</strong> Twilio SMS and Stripe payments, with a feature-flag kill switch for controlled launch.</li>
-            <li className="font-mono"><strong>B2B Lead Generation:</strong> Apollo.io-powered pipeline targeting construction and staffing companies.</li>
+            <li className="font-mono"><strong>B2B Lead-Generation Pipeline:</strong> Apollo.io company search (real API with a mock fallback), LLM-based fit scoring via Groq with a deterministic heuristic fallback, full pipeline tracking (new → contacted → responded → qualified → closed/lost) with a per-lead activity log, and n8n workflows for intake, scheduled Apollo sync, and follow-up dispatch &mdash; all outreach gated by an allowlist plus a persistent CAN-SPAM suppression list, no bypass path.</li>
           </ul>
         </div>
       );

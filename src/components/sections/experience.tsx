@@ -17,9 +17,9 @@ const EXPERIENCE = [
       "Engineered an 8-phase security overhaul that fixed IDOR and PII enumeration vulnerabilities, added authentication, rate limiting, and audit logging, plus Playwright end-to-end test coverage — resulting in a more secure platform and preventing data-leak incidents.",
       "Built an admin dashboard with React and Supabase providing global search, inline editing, and a real-time daily operations view, allowing staff to manage reservations faster with fewer manual errors.",
       "Designed automation architecture using Twilio SMS and Stripe payments with a feature-flag kill switch for controlled launch.",
-      "Configured a B2B lead-generation pipeline using Apollo.io targeting construction and staffing companies.",
+      "Built a B2B lead-generation pipeline (Apollo.io company search, LLM-based lead scoring via Groq, n8n workflows for intake/sync/follow-up) targeting construction firms, staffing agencies, and travel-nurse agencies, with allowlist- and suppression-list-gated outreach.",
     ],
-    tags: ["FastAPI", "React", "Supabase", "Railway", "Vercel", "Twilio", "Stripe", "Playwright"],
+    tags: ["FastAPI", "React", "Supabase", "Railway", "Vercel", "n8n", "Twilio", "Stripe", "Playwright"],
   },
   {
     company: "Squareone",

@@ -1,9 +1,9 @@
 const config = {
   title: "Vrajkumar Patel | Computer Science Student & Full-Stack Developer",
   description: {
-    long: "Full-stack developer and founder of Stayvoo, a hotel booking platform. Built ARIA, an AI agent using LLM inference and RAG — 2nd place, NLU CSIS Tech Summit. CS graduate (AI concentration) who led a 4-person team at Squareone shipping full-stack features on AWS.",
+    long: "Full-stack developer and founder of Stayvoo, a hotel booking platform. Built ARIA's memory/retrieval backend, an AI agent using LLM inference and RAG — 2nd place, NLU CSIS Tech Summit. CS graduate (AI concentration) who led a 4-person team at Squareone shipping full-stack features deployed on Render.",
     short:
-      "Full-stack developer and founder of Stayvoo, a hotel booking platform. Built ARIA, an AI agent using LLM inference and RAG — 2nd place, NLU CSIS Tech Summit. CS graduate (AI concentration) who led a 4-person team at Squareone shipping full-stack features on AWS.",
+      "Full-stack developer and founder of Stayvoo, a hotel booking platform. Built ARIA's memory/retrieval backend, an AI agent using LLM inference and RAG — 2nd place, NLU CSIS Tech Summit. CS graduate (AI concentration) who led a 4-person team at Squareone shipping full-stack features deployed on Render.",
   },
   keywords: [
     "Vrajkumar",

@@ -439,7 +439,7 @@ const projects: Project[] = [
     title: "Stayvoo – Hotel Booking Platform",
     src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
     description:
-      "A hotel booking platform for extended-stay and group reservations, built full-stack with FastAPI, React, and Supabase. Includes an 8-phase security overhaul, a real-time admin dashboard, and automated operations via n8n, Twilio, and Stripe.",
+      "A hotel booking platform for extended-stay and group reservations, built full-stack with FastAPI, React, and Supabase. Includes an 8-phase security overhaul, a real-time admin dashboard, and automated operations via Twilio and Stripe.",
     screenshots: [],
     live: "https://stayvoo.com",
     skills: {
@@ -452,7 +452,6 @@ const projects: Project[] = [
         PROJECT_SKILLS.fastapi,
         PROJECT_SKILLS.supabase,
         PROJECT_SKILLS.railway,
-        PROJECT_SKILLS.n8n,
         PROJECT_SKILLS.twilio,
         PROJECT_SKILLS.stripe,
       ],
@@ -470,7 +469,7 @@ const projects: Project[] = [
             <li className="font-mono"><strong>Full-Stack Platform:</strong> Built with FastAPI, React, and Supabase, deployed on Railway (API) and Vercel (frontend).</li>
             <li className="font-mono"><strong>8-Phase Security Overhaul:</strong> Fixed IDOR and PII enumeration vulnerabilities, added authentication, rate limiting, and audit logging, plus Playwright end-to-end test coverage &mdash; preventing data-leak incidents.</li>
             <li className="font-mono"><strong>Admin Dashboard:</strong> Built with React and Supabase, providing global search, inline editing, and a real-time daily operations view so staff can manage reservations faster with fewer manual errors.</li>
-            <li className="font-mono"><strong>Automation Architecture:</strong> n8n workflows, Twilio SMS, and Stripe payments, with a feature-flag kill switch for controlled launch.</li>
+            <li className="font-mono"><strong>Automation Architecture:</strong> Twilio SMS and Stripe payments, with a feature-flag kill switch for controlled launch.</li>
             <li className="font-mono"><strong>B2B Lead Generation:</strong> Apollo.io-powered pipeline targeting construction and staffing companies.</li>
           </ul>
         </div>
@@ -483,56 +482,124 @@ const projects: Project[] = [
     title: "ARIA – Adaptive Responsive Intelligent Agent",
     src: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?q=80&w=2070&auto=format&fit=crop",
     description:
-      "Real-time AI study companion with speech recognition, LLM inference, emotionally expressive Live2D avatar, persistent memory via Obsidian vault, and <5s end-to-end latency. NLU AI Senior Capstone, showcased May 8, 2026.",
+      "AI study companion backend: a hybrid BM25 + vector + knowledge-graph memory system, a rate-limited Groq LLM proxy, and Google Calendar integration — driving a third-party Live2D/TTS avatar engine I configured and integrated. NLU AI Senior Capstone, showcased May 8, 2026.",
     screenshots: [],
     live: "#",
     github: "https://github.com/vrajkumarpatel/ARIA",
     skills: {
-      frontend: [
-        PROJECT_SKILLS.csharp,
-        PROJECT_SKILLS.live2d,
-      ],
+      frontend: [],
       backend: [
         PROJECT_SKILLS.python,
         PROJECT_SKILLS.fastapi,
         PROJECT_SKILLS.groq,
-        PROJECT_SKILLS.elevenlabs,
-        PROJECT_SKILLS.cuda,
       ],
     },
     get content() {
       return (
         <div>
           <TypographyP className="font-mono">
-            ARIA (Adaptive Responsive Intelligent Agent) is a real-time AI study companion delivered as a Live2D animated character. She listens via microphone, generates a pedagogically intentional LLM response with long-term memory, and speaks back with a synthesized voice while her avatar displays synchronized lip movement and 17 emotional expressions. Built as the NLU AI Senior Capstone, showcased May 8, 2026.
+            ARIA is an AI study companion. My own work is the Python memory/orchestration backend: a hybrid BM25 + vector + knowledge-graph retrieval system, a rate-limited Groq LLM proxy with retry/backoff, and Google Calendar OAuth2 integration. That backend drives a Live2D avatar with voice and lip-sync — but the avatar/TTS/lip-sync engine itself is a third-party open-source project, <Link href="https://github.com/fagenorn/handcrafted-persona-engine" target="_blank" rel="noopener" className="underline">fagenorn/handcrafted-persona-engine</Link> (C#/.NET 9), which I configured, GPU-tuned, and integrated — I did not build it. Built as the NLU AI Senior Capstone, showcased May 8, 2026.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+
+          <TypographyH3 className="my-4 mt-8">What I Built</TypographyH3>
+          <ul className="list-disc ml-6 space-y-2">
+            <li className="font-mono"><strong>Hybrid Memory Retrieval:</strong> BM25 keyword search, vector search, and a knowledge-graph layer combined to retrieve relevant past sessions from an Obsidian vault and inject them into every LLM prompt.</li>
+            <li className="font-mono"><strong>Rate-Limited Groq Proxy:</strong> A Python/FastAPI proxy that handles memory injection, date awareness, Groq API rate-limiting with retry/backoff, and vault writes.</li>
+            <li className="font-mono"><strong>Calendar Integration:</strong> Google Calendar OAuth2, so ARIA is aware of a student&apos;s schedule.</li>
+            <li className="font-mono"><strong>Cross-Platform Memory Import:</strong> Exports from Claude, ChatGPT, and Gemini can be imported into the memory vault, giving ARIA knowledge of a student&apos;s full AI-assisted academic history.</li>
+            <li className="font-mono"><strong>Educational Philosophy:</strong> ARIA guides students toward their own answers rather than completing work for them — structured to make AI-assisted learning meaningful, not a shortcut.</li>
+          </ul>
+
+          <TypographyH3 className="my-4 mt-8">Third-Party Integration (Not My Code)</TypographyH3>
+          <ul className="list-disc ml-6 space-y-2">
+            <li className="font-mono"><strong>Avatar &amp; Voice Engine:</strong> <Link href="https://github.com/fagenorn/handcrafted-persona-engine" target="_blank" rel="noopener" className="underline">fagenorn/handcrafted-persona-engine</Link> (C#/.NET 9) — the Live2D rendering, TTS (ElevenLabs/Qwen3), and NVIDIA Audio2Face lip-sync all live here. I configured, GPU-tuned, and integrated this engine against my backend; I did not author it.</li>
+            <li className="font-mono"><strong>My integration surface:</strong> stripping inline emotion tags from LLM output before they reach the TTS layer, and GPU/CUDA environment tuning to keep it running smoothly alongside the local TTS model.</li>
+          </ul>
+        </div>
+      );
+    },
+  },
+  {
+    id: "inteldocs",
+    category: "AI Infrastructure",
+    title: "IntelDocs – Document Intelligence Platform",
+    src: "https://images.unsplash.com/photo-1568667256549-094345857637?q=80&w=2070&auto=format&fit=crop",
+    description:
+      "Document intelligence platform with hybrid retrieval (BM25 + vector + local reranking) and cited Q&A, plus an evaluation pipeline that measures retrieval accuracy and answer faithfulness across configurations. Multi-tenant, async ingestion, PostgreSQL/pgvector, Docker.",
+    screenshots: [],
+    live: "#",
+    github: "https://github.com/vrajkumarpatel/IntelDocs",
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.react,
+        PROJECT_SKILLS.ts,
+      ],
+      backend: [
+        PROJECT_SKILLS.python,
+        PROJECT_SKILLS.fastapi,
+        PROJECT_SKILLS.postgres,
+        PROJECT_SKILLS.docker,
+        PROJECT_SKILLS.groq,
+      ],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono">
+            IntelDocs is a document intelligence platform: upload contracts, invoices, or policies (scanned or native PDFs), ask cited questions against them, and — the differentiator — measure whether the retrieval and answers are actually correct with a real evaluation pipeline rather than just trusting the demo.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
 
           <TypographyH3 className="my-4 mt-8">Core Features</TypographyH3>
           <ul className="list-disc ml-6 space-y-2">
-            <li className="font-mono"><strong>Real-Time Pipeline:</strong> Speech → Whisper ASR (~370ms) → Groq LLM (~3s) → ElevenLabs/Qwen3 TTS → Audio2Face lip-sync → Live2D render at 60fps, all under 5 seconds end-to-end.</li>
-            <li className="font-mono"><strong>Persistent Memory:</strong> Every conversation is stored as markdown in an Obsidian vault. BM25 search retrieves relevant past sessions and injects them into every LLM prompt — ARIA remembers your projects and learning history.</li>
-            <li className="font-mono"><strong>Cross-Platform Memory Import:</strong> Exports from Claude, ChatGPT, and Gemini can be imported into the memory vault, giving ARIA knowledge of a student&apos;s full AI-assisted academic history.</li>
-            <li className="font-mono"><strong>17 Emotional Expressions:</strong> LLM embeds inline emotion tags; EmotionProcessor strips them before TTS and fires Live2D expressions synchronized to audio playback.</li>
-            <li className="font-mono"><strong>Dual TTS Engines:</strong> ElevenLabs (cloud, reliable) and Qwen3-TTS running locally on GPU with real emotional prosody, sighs, and natural vocalizations.</li>
-            <li className="font-mono"><strong>Educational Philosophy:</strong> ARIA guides students toward their own answers rather than completing work for them — structured to make AI-assisted learning meaningful, not a shortcut.</li>
+            <li className="font-mono"><strong>Hybrid Retrieval:</strong> BM25 and pgvector cosine similarity combined via reciprocal rank fusion, then narrowed by a local cross-encoder reranker — no paid embedding or reranking API.</li>
+            <li className="font-mono"><strong>Cited Q&amp;A:</strong> Answers reference specific chunks/pages; citations are validated against what was actually retrieved rather than trusted blindly from the LLM.</li>
+            <li className="font-mono"><strong>Evaluation Pipeline:</strong> Auto-generates test questions from real ingested documents, runs them through the actual retrieval and answer pipeline, and reports hit-rate, MRR, and LLM-judged answer faithfulness — comparable across retrieval configurations (vector-only, hybrid, hybrid+rerank).</li>
+            <li className="font-mono"><strong>Async Ingestion:</strong> OCR (Tesseract) and native PDF text extraction, chunked and embedded in the background via Redis/ARQ workers.</li>
+            <li className="font-mono"><strong>Multi-Tenant:</strong> Organization-scoped documents and users with JWT auth.</li>
           </ul>
+        </div>
+      );
+    },
+  },
+  {
+    id: "leadtriage",
+    category: "AI Automation",
+    title: "LeadTriage – AI Lead Qualification",
+    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    description:
+      "AI-powered lead qualification and follow-up automation: a webhook intake pipeline into a FastAPI backend that scores and classifies leads via LLM, tracks every automation run with retry and audit logging, and surfaces it all in a React dashboard.",
+    screenshots: [],
+    live: "#",
+    github: "https://github.com/vrajkumarpatel/LeadTriage",
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.react,
+        PROJECT_SKILLS.ts,
+      ],
+      backend: [
+        PROJECT_SKILLS.fastapi,
+        PROJECT_SKILLS.postgres,
+        PROJECT_SKILLS.groq,
+        PROJECT_SKILLS.n8n,
+        PROJECT_SKILLS.docker,
+      ],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono">
+            LeadTriage replaces a manual &quot;someone reads every form submission and decides what matters&quot; process with a pipeline that classifies, scores, and drafts a first response automatically, while keeping a full audit trail of what happened and why.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
 
-          <TypographyH3 className="my-4 mt-8">System Architecture</TypographyH3>
+          <TypographyH3 className="my-4 mt-8">Core Features</TypographyH3>
           <ul className="list-disc ml-6 space-y-2">
-            <li className="font-mono"><strong>Engine:</strong> PersonaEngine 3.0.2 (C# / .NET 9) — custom-built on an open-source Live2D + TTS framework.</li>
-            <li className="font-mono"><strong>LLM Proxy:</strong> Python / FastAPI on localhost:7777 — handles memory injection, date awareness, Groq rate-limiting (2.1s gap), and Obsidian vault writes.</li>
-            <li className="font-mono"><strong>LLM:</strong> Groq API (llama-3.1-8b-instant) — 500K tokens/day free tier, OpenAI-compatible.</li>
-            <li className="font-mono"><strong>Lip Sync:</strong> NVIDIA Audio2Face ONNX (GPU) → ARKit blendshapes → BVLS solver → Live2D mouth parameters.</li>
-            <li className="font-mono"><strong>GPU:</strong> RTX 5000-series (Blackwell SM_120a), CUDA 12.8, cuDNN 9.1.1.</li>
-          </ul>
-
-          <TypographyH3 className="my-4 mt-8">Performance</TypographyH3>
-          <ul className="list-disc ml-6 space-y-2">
-            <li className="font-mono">STT latency: 315–468ms</li>
-            <li className="font-mono">LLM latency: 2,645–4,251ms</li>
-            <li className="font-mono">TTS first chunk: 1,031–1,767ms (typical)</li>
-            <li className="font-mono">End-to-end total: ~4.2–5.3s typical, &lt;5s target achieved</li>
+            <li className="font-mono"><strong>AI Qualification:</strong> An LLM call (Groq) returns structured classification, score, reasoning, recommended next action, and a suggested follow-up — with a real deterministic heuristic fallback when no API key is set, so the demo always works.</li>
+            <li className="font-mono"><strong>Workflow Tracking:</strong> Every qualification attempt is tracked to success or failure; failed runs can be retried, and every step is recorded in an audit log.</li>
+            <li className="font-mono"><strong>Optional No-Code Orchestration:</strong> Three importable n8n workflows (intake, notification, follow-up) sit in front of the same API — the backend works standalone without n8n running at all.</li>
+            <li className="font-mono"><strong>Operator Dashboard:</strong> A React dashboard for lead scoring breakdowns, workflow history, and automation status.</li>
           </ul>
         </div>
       );
